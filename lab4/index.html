@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Форма для заполнения</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <form onsubmit = "sendData()">
+                <p class="title">ЗАПОЛНИТЕ ФОРМУ</p>
+                <div>
+                    <p>ИМЯ И ФАМИЛИЯ</p>
+                    <input type="text" name="name" class="text-input">
+                </div>
+                <div>
+                    <p>ТЕЛЕФОН</p>
+                    <input type="text" name="phone" class="text-input">
+                </div>
+                <div>
+                    <p>EMAIL</p>
+                    <input type="text" name="email" class="text-input">
+                </div>
+                <div>
+                    <p>ОПИСАНИЕ</p>
+                    <textarea name="desc" class="text-input description"></textarea>
+                </div>
+                <div>
+                    <p>ФОТОГРАФИЯ</p>
+                    <input type="file" name="photo">
+                </div>
+                <input type="submit" class="button">
+            </form>
+            
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
