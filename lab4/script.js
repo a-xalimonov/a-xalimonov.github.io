@@ -10,25 +10,28 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let database = firebase.firestore()
+const database = firebase.database()
+const databaseRef = database.ref("forms");
 //let storage = firebase.storage();
 
 function sendData()
 {
-    let form = document.forms[0];
+    const form = document.forms[0];
     const name = form.name.value;
     const phone = form.phone.value;
     const email = form.email.value;
     const desc = form.desc.value;
-    database.collection("forms").add({
-        name: name,
-        phone: phone,
-        email: email,
-        desc: desc,
-    })
-    .then(function(docRef) {
-        alert("Document written with ID: ", docRef.id);
-    }, function(error) {
-        alert("Error adding document: ", error);
+    writeUserData(name, phone, email, desc, "");
+}
+
+function writeUserData(name, phone, email, desc, imageUrl) {
+    const databaseNewId = databaseRef.push();
+    alert(databaseNewId);
+    databaseNewId.set({
+      name: name,
+      phone: phone,
+      email: email,
+      desc: desc,
+      photo: imageUrl,
     });
 }
