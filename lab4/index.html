@@ -7,35 +7,40 @@
     </head>
     <body>
         <div>
-            <form onsubmit = "sendData()">
+            <form onsubmit = "sendData(); return false">
                 <p class="title">ЗАПОЛНИТЕ ФОРМУ</p>
                 <div>
                     <p>ИМЯ И ФАМИЛИЯ</p>
+                    <p class="alert-label alert-name"></p>
                     <input type="text" name="name" class="text-input">
                 </div>
                 <div>
                     <p>ТЕЛЕФОН</p>
+                    <p class="alert-label alert-phone"></p>
                     <input type="text" name="phone" class="text-input">
                 </div>
                 <div>
                     <p>EMAIL</p>
+                    <p class="alert-label alert-email"></p>
                     <input type="text" name="email" class="text-input">
                 </div>
                 <div>
                     <p>ОПИСАНИЕ</p>
+                    <p></p>
                     <textarea name="desc" class="text-input description"></textarea>
                 </div>
                 <div>
                     <p>ФОТОГРАФИЯ</p>
+                    <p></p>
                     <input type="file" name="photo">
                 </div>
                 <input type="submit" class="button">
+                <p class="result-label"></p>
             </form>
-            
+            <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+            <script src="script.js"></script>
         </div>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
-        <script src="script.js"></script>
     </body>
 </html>

@@ -43,10 +43,14 @@ body>div>div {
 .button {
     margin-top: 20px;
     margin-bottom: 10px;
-    background-color: #e4a111;
+    background-color: #ce4008;
     padding: 10px;
     border: none;
     border-radius: 5px;
     width: 60%;
     color: #ffffff;
+}
+
+.alert-label {
+    color: red;
 }

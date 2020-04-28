@@ -10,28 +10,86 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const database = firebase.database()
-const databaseRef = database.ref("forms");
-//let storage = firebase.storage();
+const databaseRef = firebase.database().ref("forms");
+const storageRef = firebase.storage().ref();
 
-function sendData()
-{
+function sendData() {
     const form = document.forms[0];
     const name = form.name.value;
-    const phone = form.phone.value;
+    const phone = form.phone.value.replace(/\s/g, "");
     const email = form.email.value;
     const desc = form.desc.value;
-    writeUserData(name, phone, email, desc, "");
+    const photo = form.photo.files[0];
+
+    const nameIsValid = verifyName(name);
+    const phoneIsValid = verifyPhone(phone);
+    const emailIsValid = verifyEmail(email);
+
+    if (nameIsValid && phoneIsValid && emailIsValid) {
+        writeUserData(name, phone, email, desc, photo);
+    }
+    else {
+        form.reset();
+    }
 }
 
-function writeUserData(name, phone, email, desc, imageUrl) {
-    const databaseNewId = databaseRef.push();
-    alert(databaseNewId);
-    databaseNewId.set({
-      name: name,
-      phone: phone,
-      email: email,
-      desc: desc,
-      photo: imageUrl,
+function verifyName(name) {
+    const alertName = document.getElementsByClassName("alert-name")[0];
+    if (/^[а-яё]+\s+[a-яё]+$/i.test(name)) {
+        alertName.innerHTML = "";
+        return true;
+    }
+    else {
+        alertName.innerHTML = "Имя и фамилия должны содержать только кириллицу!";
+        return false;
+    }
+}
+
+function verifyPhone(phone) {
+    const alertPhone = document.getElementsByClassName("alert-phone")[0];
+    if (/^8[\d]{10}$/.test(phone)) {
+        alertPhone.innerHTML = "";
+        return true
+    }
+    else {
+        alertPhone.innerHTML = "Номер телефона должен сосостоять только из 11 цифр!";
+        return false;
+    }
+}
+
+function verifyEmail(email) {
+    const alertEmail = document.getElementsByClassName("alert-email")[0];
+    if (/^[\w.-]+@[\w.-]+.\w{2,4}$/.test(email)) {
+        alertEmail.innerHTML = "";
+        return true;
+    }
+    else {
+        alertEmail.innerHTML = "Адрес электронной почты введён некорректно!";
+        return false;
+    }
+}
+
+function writeUserData(name, phone, email, desc, photo) {
+    const databaseNewRef = databaseRef.push();
+    databaseNewRef.set({
+        name: name,
+        phone: phone,
+        email: email,
+        desc: desc,
+    }, function(error) {
+        const label = document.getElementsByClassName("result-label")[0];
+        if (error) {
+            label.style = "color: red";
+            label.innerHTML = "Ошибка: " + error + "!";
+        }
+        else {
+            label.style = "color: green";
+            label.innerHTML = "Данные успешно отправлены!";
+        }
     });
+    if (photo != undefined)
+    {
+        const storageNewRef = storageRef.child(databaseNewRef.key + "/" + photo.name);
+        storageNewRef.put(photo);
+    }
 }
