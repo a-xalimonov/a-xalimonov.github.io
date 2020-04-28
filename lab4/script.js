@@ -28,9 +28,6 @@ function sendData() {
     if (nameIsValid && phoneIsValid && emailIsValid) {
         writeUserData(name, phone, email, desc, photo);
     }
-    else {
-        form.reset();
-    }
 }
 
 function verifyName(name) {
