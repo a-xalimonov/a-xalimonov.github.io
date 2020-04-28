@@ -13,8 +13,12 @@ firebase.initializeApp(firebaseConfig);
 const databaseRef = firebase.database().ref("forms");
 const storageRef = firebase.storage().ref();
 
-function sendData() {
-    const form = document.forms[0];
+const form = document.forms[0];
+form.addEventListener("submit",sendData);
+
+function sendData(event) {
+
+    event.preventDefault();
     const name = form.name.value;
     const phone = form.phone.value.replace(/\s/g, "");
     const email = form.email.value;
@@ -44,9 +48,9 @@ function verifyName(name) {
 
 function verifyPhone(phone) {
     const alertPhone = document.getElementsByClassName("alert-phone")[0];
-    if (/^8[\d]{10}$/.test(phone)) {
+    if (/^\+?[78][\d]{10}$/.test(phone)) {
         alertPhone.innerHTML = "";
-        return true
+        return true;
     }
     else {
         alertPhone.innerHTML = "Номер телефона должен сосостоять только из 11 цифр!";
