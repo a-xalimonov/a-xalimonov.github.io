@@ -7,9 +7,9 @@ class MainPage extends React.Component {
     render() {
         return (
             <div className="Main-page">
-                <Header />
+                <Header/>
                 <MainContent />
-                <a className="Github-link" href="https://github.com/a-xalimonov/a-xalimonov.github.io/tree/master/Homework">Ссылка на репозиторий</a>
+                <a className="Github-link" href="https://github.com/a-xalimonov/a-xalimonov.github.io/tree/master/homework">Ссылка на репозиторий</a>
             </div>
         );
     }

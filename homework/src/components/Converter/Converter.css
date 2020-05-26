@@ -1,0 +1,36 @@
+.Converter {
+    max-width: 500px;
+    width: 95%;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #00000030;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.Input-line {
+    display: flex;
+    align-items: center;
+    line-height: 0px;
+    margin-bottom: 10px;
+}
+
+.Input-box {
+    margin-left: 7px;
+    height: 20px;
+    width: 80px;
+}
+
+.Converter-table {
+    border-spacing: 0px;
+    margin-bottom: 20px;
+}
+
+.Middle-line {
+    background-color: #eeeeee;
+}
+
+.TD {
+    padding-left: 10px;
+}

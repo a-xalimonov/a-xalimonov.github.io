@@ -38,22 +38,13 @@
     margin-right: 10px;
 }
 
-.Authorization {
+.Return {
     margin-right: 15px;
-    
-}
-
-.Upper-button {
     text-align: center;
-    font-size: 27px;
+    font-size: 20px;
 }
 
-.Lower-button {
-    text-align: center;
-    cursor: pointer;
-}
-
-.Link {
+.Return-link {
     text-decoration: none;
     color: #004e43;
 }

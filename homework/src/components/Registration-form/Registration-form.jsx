@@ -3,6 +3,7 @@ import './Registration-form.css';
 import {
     Link, withRouter
 } from 'react-router-dom'
+import { withFirebase } from "../Firebase/index"
 
 class RegistrationFormBase extends React.Component {
 
@@ -34,7 +35,7 @@ class RegistrationFormBase extends React.Component {
         if (this.password1.value !== this.password2.value) {
             passwordsAreEqualB = false;
         }
-        if (this.fileInput.files.length == 0) {
+        if (this.fileInput.files.length === 0) {
             photoIsUploadedB = false;
         }
         else {
@@ -121,6 +122,6 @@ class RegistrationFormBase extends React.Component {
     }
 }
 
-const RegistrationForm = withRouter(RegistrationFormBase);
+const RegistrationForm = withFirebase(withRouter(RegistrationFormBase));
 
 export default RegistrationForm

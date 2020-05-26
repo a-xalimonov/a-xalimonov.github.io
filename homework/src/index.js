@@ -10,6 +10,7 @@ import {
 import MainPage from './pages/Main-page/Main-page'
 import Registration from './pages/Registraion/Registration'
 import Login from './pages/Login/Login'
+import ConverterPage from './pages/Converter-page/Converter-page';
 
 import Firebase, { FirebaseContext } from './components/Firebase';
 
@@ -26,6 +27,9 @@ ReactDOM.render(
           </Route>
           <Route exact path="/JS_Homework/Login">
             <Login />
+          </Route>
+          <Route exact path="/JS_Homework/Converter">
+            <ConverterPage />
           </Route>
         </Switch>
       </Router>

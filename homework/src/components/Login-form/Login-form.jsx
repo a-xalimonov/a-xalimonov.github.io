@@ -3,6 +3,7 @@ import './Login-form.css';
 import {
     Link, withRouter,
 } from 'react-router-dom'
+import { withFirebase } from "../Firebase/index"
 
 class LoginFormBase extends React.Component {
 
@@ -56,6 +57,6 @@ class LoginFormBase extends React.Component {
     }
 }
 
-const LoginForm = withRouter(LoginFormBase);
+const LoginForm = withFirebase(withRouter(LoginFormBase));
 
 export default LoginForm
