@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.504da858.css",
-    "main.js": "./static/js/main.8e0f5e56.js",
+    "main.js": "./static/js/main.04541912.js",
     "static/media/jupiter.png": "./static/media/jupiter.f35277a8968ef38f8a2a.png",
     "static/media/saturn.png": "./static/media/saturn.c1fa52059476df2973c9.png",
     "static/media/star.png": "./static/media/star.e6bb69d41a69e683add9.png",
@@ -17,10 +17,10 @@
     "static/media/background.png": "./static/media/background.c4980402dc1aa08156c3.png",
     "index.html": "./index.html",
     "main.504da858.css.map": "./static/css/main.504da858.css.map",
-    "main.8e0f5e56.js.map": "./static/js/main.8e0f5e56.js.map"
+    "main.04541912.js.map": "./static/js/main.04541912.js.map"
   },
   "entrypoints": [
     "static/css/main.504da858.css",
-    "static/js/main.8e0f5e56.js"
+    "static/js/main.04541912.js"
   ]
 }
